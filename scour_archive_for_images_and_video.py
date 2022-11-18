@@ -49,7 +49,7 @@ def scrape_time(input_file,output_path):
         urlparsed=urlparse(l)
         #print(urlparsed)
         timestamp=datetime.now().strftime('%Y-%m-%d_%H-%M-%S_')
-        filename=output_path+'/'+timestamp+os.path.basename(urlparse(l).path)
+        filename=os.path.join(output_path,timestamp+os.path.basename(urlparse(l).path))
         req=requests.get(l)
         status=req.status_code
         if status==200:
